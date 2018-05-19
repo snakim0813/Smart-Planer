@@ -1,2 +1,0 @@
-# Smart-Planer
-android planer
