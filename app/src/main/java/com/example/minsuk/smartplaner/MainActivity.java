@@ -16,105 +16,32 @@ import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class MainActivity extends AppCompatActivity {
 
-    Spinner dateYear, dateMonth ,dateDay;
-
-    String[] sYear, sMonth, sDay;
-
-    ViewGroup layout1,layout2;
-
     TextView DateNow;
+
+    long now = System.currentTimeMillis();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Date date =  new Date(now);
 
-        DateNow = (TextView)findViewById(R.id.PresentDate);
+        SimpleDateFormat Datenow = new SimpleDateFormat("yyyy\n MM\n dd\n");
 
-        StringBuilder time =new StringBuilder();
+        String nowDate = Datenow.format(date);
 
-        Calendar cal = new GregorianCalendar();
+        DateNow =(TextView)findViewById(R.id.PresentDate);
 
-        time.append(String.format("%dYear \n %월 \n %일\n",cal.get(Calendar.YEAR),cal.get(Calendar.MONTH)+1,cal.get(Calendar.DAY_OF_MONTH)));
-
-        DateNow.setText(time);
-
-
-
-                dateYear = (Spinner)findViewById(R.id.dateYear);
-        dateMonth = (Spinner)findViewById(R.id.dateMonth);
-        dateDay = (Spinner)findViewById(R.id.dateDay);
-
-
-        Calendar calendar = Calendar.getInstance();
-        int maxYear = calendar.get(Calendar.YEAR);
-
-        sYear = new String[20];
-        sMonth = new String[12];
-        sDay = new String[31];
-
-        for(int i = 10-1, j = 0 ; i>=-10 ; i--, j++)
-        {
-            //정수 -> 문자열 후 배열에 삽입
-            sYear[j] = String.valueOf(maxYear - i) + "년";
-        }
-
-        for(int i = 0 ; i<=11 ; i++)
-        {
-            //정수 -> 문자열 후 배열에 삽입
-            sMonth[i] = String.valueOf(i+1) + "월";
-        }
-
-        for(int i = 0 ; i<=30 ; i++)
-        {
-            //정수 -> 문자열 후 배열에 삽입
-            sDay[i] = String.valueOf(i+1) + "일";
-        }
-
-        ArrayAdapter sYearSpinnerAdapter, sMonthSpinnerAdapter, sDaySpinnerAdapter;
-        sYearSpinnerAdapter = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, sYear);
-        sMonthSpinnerAdapter = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, sMonth);
-        sDaySpinnerAdapter = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, sDay);
-        dateYear.setAdapter(sYearSpinnerAdapter);
-        dateMonth.setAdapter(sMonthSpinnerAdapter);
-        dateDay.setAdapter(sDaySpinnerAdapter);
-
-        dateYear.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                ((TextView)adapterView.getChildAt(0)).setTextColor(Color.BLACK);
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-            }
-        });
-
-        dateMonth.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                ((TextView)adapterView.getChildAt(0)).setTextColor(Color.BLACK);
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-            }
-        });
-
-        dateDay.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                ((TextView)adapterView.getChildAt(0)).setTextColor(Color.BLACK);
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-            }
-        });
+        DateNow.setText(nowDate);
 
         ViewGroup layout1 = (ViewGroup) findViewById(R.id.PlanEB);
         layout1.setOnClickListener(new View.OnClickListener() {
