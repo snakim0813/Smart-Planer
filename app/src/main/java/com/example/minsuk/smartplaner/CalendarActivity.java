@@ -1,4 +1,4 @@
-package com.example.minsuk.smartplaner.;
+package com.example.minsuk.smartplaner;
 
 import java.text.SimpleDateFormat;
 
