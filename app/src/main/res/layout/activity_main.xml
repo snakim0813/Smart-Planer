@@ -36,53 +36,21 @@
             android:background="#DCDCDC"
             android:orientation="vertical">
 
-            <LinearLayout
+            -<LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#ffffff"
                 android:orientation="vertical">
 
-                <LinearLayout
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center">
+                    android:id="@+id/PresentDate"
+                    android:textSize="16dp"
+                    android:text=""/>
 
-                    <Spinner
-                        android:id="@+id/dateYear"
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:background="@drawable/outline01"></Spinner>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center">
-
-                    <Spinner
-                        android:id="@+id/dateMonth"
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:background="@drawable/outline01"></Spinner>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center">
-
-                    <Spinner
-                        android:id="@+id/dateDay"
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:background="@drawable/outline01"></Spinner>
-                </LinearLayout>
-
-            </LinearLayout>
+            </LinearLayout>-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -106,7 +74,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="58dp"
                     android:layout_weight="1"
                     android:background="@drawable/outline02"
                     android:gravity="center">

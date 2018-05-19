@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import java.util.Locale;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,10 +28,23 @@ public class MainActivity extends AppCompatActivity {
 
     ViewGroup layout1,layout2;
 
+    TextView DateNow;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        DateNow = (TextView)findViewById(R.id.PresentDate);
+
+        StringBuilder time =new StringBuilder();
+
+        Calendar cal = new GregorianCalendar();
+
+        time.append(String.format("%dYear \n %월 \n %일\n",cal.get(Calendar.YEAR),cal.get(Calendar.MONTH)+1,cal.get(Calendar.DAY_OF_MONTH)));
+
+        DateNow.setText(time);
 
 
 
