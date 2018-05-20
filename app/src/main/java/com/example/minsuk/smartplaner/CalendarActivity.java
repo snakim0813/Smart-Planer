@@ -88,6 +88,8 @@ public class CalendarActivity extends Activity {
 
     private Calendar mCal;
 
+    TextView DateNow;
+
 
 
     @Override
@@ -202,9 +204,15 @@ public class CalendarActivity extends Activity {
 
         });
 
+        Date DateC =  new Date(now);
 
+        SimpleDateFormat Datenow = new SimpleDateFormat(" dd 일\n    토");
 
+        String nowDate = Datenow.format(DateC);
 
+        DateNow =(TextView)findViewById(R.id.Day);
+
+        DateNow.setText(nowDate);
 
     }
 
