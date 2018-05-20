@@ -196,7 +196,7 @@ public class CalendarActivity extends Activity {
         layout3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(CalendarActivity.this,MainActivity.class);
+                Intent intent=new Intent(CalendarActivity.this, Week_Acitivity_TypeA.class);
                 startActivity(intent);
                 finish();
             }
