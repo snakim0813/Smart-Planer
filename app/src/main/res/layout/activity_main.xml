@@ -874,6 +874,7 @@
 
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:orientation="horizontal"
             android:background="#BDBDBD"
             android:gravity="center"
             >
@@ -934,12 +935,11 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/PlanDay1"
+                android:id="@+id/Week1"
                 android:layout_width="100dp"
                 android:layout_height="40dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:onClick="onClick2"
                 android:background="@drawable/button_option_02"
                 >
 
@@ -959,6 +959,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/DayInfoM"
                 android:layout_width="100dp"
                 android:layout_height="40dp"
                 android:layout_weight="1"
