@@ -191,14 +191,38 @@ public class CalendarActivity extends Activity {
 
         });
 
+        ViewGroup layout2 = (ViewGroup) findViewById(R.id.MonthM);
+        layout2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(CalendarActivity.this, CalendarActivity.class);
+                startActivity(intent);
+                finish();
+            }
 
-        ViewGroup layout3 = (ViewGroup) findViewById(R.id.PlanDay2);
+
+        });
+
+
+
+        ViewGroup layout3 = (ViewGroup) findViewById(R.id.WeekM);
         layout3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(CalendarActivity.this, Week_Acitivity_TypeA.class);
                 startActivity(intent);
                 finish();
+            }
+
+
+        });
+
+        ViewGroup layout4 = (ViewGroup) findViewById(R.id.DayInfoM);
+        layout1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CalendarActivity.this, MainActivity.class);
+                startActivity(intent);
             }
 
 

@@ -54,8 +54,8 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        ViewGroup layout5 = (ViewGroup) findViewById(R.id.Month1);
-        layout5.setOnClickListener(new View.OnClickListener() {
+        ViewGroup layout2 = (ViewGroup) findViewById(R.id.Month1);
+        layout2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(MainActivity.this, CalendarActivity.class);
@@ -65,6 +65,30 @@ public class MainActivity extends AppCompatActivity {
 
 
         });
+
+        ViewGroup layout3 = (ViewGroup) findViewById(R.id.Week1);
+        layout3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this, Week_Acitivity_TypeA.class);
+                startActivity(intent);
+                finish();
+            }
+
+
+        });
+
+        ViewGroup layout4 = (ViewGroup) findViewById(R.id.DayInfoM);
+        layout1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+
+
+        });
+
 
 
 

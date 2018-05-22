@@ -67,7 +67,7 @@
         android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="71dp"
+            android:layout_height="match_parent"
             android:orientation="horizontal">
             <LinearLayout
                 android:layout_width="0dp"
@@ -318,7 +318,7 @@
         android:id="@+id/layout3"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <LinearLayout
@@ -364,7 +364,7 @@
             <LinearLayout
                 android:layout_width="100dp"
                 android:layout_height="40dp"
-                android:id="@+id/Month1"
+                android:id="@+id/MonthWA"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:background="@drawable/button_option_02"
@@ -386,12 +386,11 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/PlanDay1"
+                android:id="@+id/WeekWa"
                 android:layout_width="100dp"
                 android:layout_height="40dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:onClick="onClick2"
                 android:background="@drawable/button_option_02"
                 >
 
@@ -411,6 +410,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/DayInfoWA"
                 android:layout_width="100dp"
                 android:layout_height="40dp"
                 android:layout_weight="1"
@@ -459,7 +459,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="match_parent"
             android:orientation="horizontal"
             android:gravity="center">
 
