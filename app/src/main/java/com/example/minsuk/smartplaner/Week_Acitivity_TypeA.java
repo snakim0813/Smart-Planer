@@ -55,7 +55,7 @@ public class Week_Acitivity_TypeA extends AppCompatActivity {
         });
 
         ViewGroup layout4 = (ViewGroup) findViewById(R.id.DayInfoM);
-        layout1.setOnClickListener(new View.OnClickListener() {
+        layout4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Week_Acitivity_TypeA.this, MainActivity.class);

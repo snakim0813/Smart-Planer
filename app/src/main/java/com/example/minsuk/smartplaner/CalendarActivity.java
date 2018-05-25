@@ -218,7 +218,7 @@ public class CalendarActivity extends Activity {
         });
 
         ViewGroup layout4 = (ViewGroup) findViewById(R.id.DayInfoM);
-        layout1.setOnClickListener(new View.OnClickListener() {
+        layout4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(CalendarActivity.this, MainActivity.class);
