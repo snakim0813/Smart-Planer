@@ -32,8 +32,11 @@
             >
         </activity>
 
+        <activity android:name=".Info_Selection_Day"
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog"
+            >
+        </activity>
 
-        <activity android:name=".CalendarActivity"></activity>
 
         <activity android:name=".Week_Acitivity_TypeA"></activity>
 
