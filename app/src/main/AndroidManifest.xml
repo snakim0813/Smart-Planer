@@ -31,6 +31,10 @@
             android:theme="@android:style/Theme.DeviceDefault.Light.Dialog"
             >
         </activity>
+        <activity android:name=".Detailinfo"
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog"
+            >
+        </activity>
 
         <activity android:name=".Info_Selection_Day"
             android:theme="@android:style/Theme.DeviceDefault.Light.Dialog"
