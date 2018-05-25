@@ -21,8 +21,8 @@ public class DBHelper extends SQLiteOpenHelper {
         //생성된 DB가 없으면 호출된다.
         //테이블 생성 작업이 시작되는 곳이다.
 
-        //테이블 작성 문장을 s_dataSQL에 스트링 형식으로 서장
-        String s_dataSQL = "create table s_date(" +
+        //테이블 작성 문장을 s_dateSQL에 스트링 형식으로 서장
+        String s_dateSQL = "create table s_date(" +
                 "_id integer primary key autoincrement, " +
                 "year integer, " +
                 "month integer, " +
@@ -35,10 +35,30 @@ public class DBHelper extends SQLiteOpenHelper {
                 "start_time integer, " +
                 "end_time integer, " +
                 "color text, " +
-                "content text)";
+                "content text, " +
+                "s_information_ID integer)";
 
-        db.execSQL(s_dataSQL); // SQLite에 _dataSQL 문장을 실행한다.
+        String s_typeSQL =  "create table s_type(" +
+                "_id integer primary key autoincrement, " +
+                "name text)";
+
+        String s_detailSQL =  "create table s_detail(" +
+                "_id integer primary key autoincrement, " +
+                "name text, "  +
+                "s_type_ID integer)";
+
+        String s_informationSQL =  "create table s_information(" +
+                "_id integer primary key autoincrement, " +
+                "name text, "  +
+                "information text, " +
+                "s_detail_ID integer)";
+
+        db.execSQL(s_dateSQL); // SQLite에 _dataSQL 문장을 실행한다.
         db.execSQL(s_timeSQL); // SQLite에 s_timeSQL 문장을 실행한다.
+
+        db.execSQL(s_typeSQL);
+        db.execSQL(s_detailSQL);
+        db.execSQL(s_informationSQL);
     }
 
     @Override
@@ -49,6 +69,10 @@ public class DBHelper extends SQLiteOpenHelper {
         if(newVersion == DATABASE_VERSION) {
             db.execSQL("drop table s_date"); //생성된 s_date 테이블을 제거한다.
             db.execSQL("drop table s_time"); //생성된 s_time 테이블을 제거한다.
+
+            db.execSQL("drop table s_typeSQL");
+            db.execSQL("drop table s_detailSQL");
+            db.execSQL("drop table s_informationSQL");
             onCreate(db);
         }
     }
