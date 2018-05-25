@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         ViewGroup layout4 = (ViewGroup) findViewById(R.id.DayInfoM);
-        layout4.setOnClickListener(new View.OnClickListener() {
+        layout1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, MainActivity.class);
