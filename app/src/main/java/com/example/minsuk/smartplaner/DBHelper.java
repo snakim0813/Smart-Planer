@@ -32,24 +32,27 @@ public class DBHelper extends SQLiteOpenHelper {
         String s_timeSQL =  "create table s_time(" +
                 "_id integer primary key autoincrement, " +
                 "date_id integer, " +
-                "start_time integer, " +
-                "end_time integer, " +
+                "start_time_hour integer, " +
+                "start_time_min integer, " +
+                "end_time_hour integer, " +
+                "end_time_min integer, " +
                 "color text, " +
-                "content text, " +
+                "content text not null, " +
+                "place, text" +
                 "s_information_ID integer)";
 
         String s_typeSQL =  "create table s_type(" +
                 "_id integer primary key autoincrement, " +
-                "name text)";
+                "name text not null)";
 
         String s_detailSQL =  "create table s_detail(" +
                 "_id integer primary key autoincrement, " +
-                "name text, "  +
+                "name text not null, "  +
                 "s_type_ID integer)";
 
         String s_informationSQL =  "create table s_information(" +
                 "_id integer primary key autoincrement, " +
-                "name text, "  +
+                "name text not null, "  +
                 "information text, " +
                 "s_detail_ID integer)";
 
