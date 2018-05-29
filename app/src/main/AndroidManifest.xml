@@ -44,6 +44,8 @@
 
         <activity android:name=".Week_Acitivity_TypeA"></activity>
 
+        <activity android:name=".Week_Activity_TypeB"></activity>
+
 
 
 

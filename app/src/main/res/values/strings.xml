@@ -2,6 +2,10 @@
     <string name="app_name">Smart Planer</string>
     <string name="NumHour">12시</string>
     <string name="NumMin">00분</string>
+    <string name="TypeA">TypeA</string>
+    <string name="TypeB">TypeB</string>
+
+
 
     <string-array name="Hour">
         <item>00시</item><item>01시</item><item>02시</item><item>03시</item><item>04시</item><item>05시</item><item>06시</item><item>07시</item><item>08시</item><item>09시</item>
@@ -20,6 +24,16 @@
 
 
 
+    </string-array>
+
+    <string-array name="Week_Type">
+        <item >TypeA</item>
+        <item >TypeB</item>
+    </string-array>
+
+    <string-array name="Week_TypeB">
+        <item >TypeB</item>
+        <item >TypeA</item>
     </string-array>
 
 

@@ -15,6 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="93dp"
         android:background="@drawable/side"
+        android:orientation="horizontal"
         android:gravity="center">
         <TextView
             android:layout_width="wrap_content"
@@ -22,6 +23,13 @@
             android:text="주간 일정표"
             android:textSize="30dp"
             android:textColor="#000000"/>
+        <Spinner
+            android:id="@+id/TypeSelectionA"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:entries="@array/Week_Type"
+            >
+        </Spinner>
     </LinearLayout>
 
     <LinearLayout

@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class Week_Acitivity_TypeA extends AppCompatActivity {
+public class Week_Activity_TypeB extends AppCompatActivity {
 
 
     @Override
@@ -27,15 +27,15 @@ public class Week_Acitivity_TypeA extends AppCompatActivity {
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-        setContentView(R.layout.activity_week_a_type);
+        setContentView(R.layout.activity_week_b_type);
 
-       Spinner spinnerType =(Spinner)findViewById(R.id.TypeSelectionA);
+       Spinner spinnerType =(Spinner)findViewById(R.id.TypeSelectionB);
 
 
-       ArrayAdapter adapter = ArrayAdapter.createFromResource(
-                this,R.array.Week_Type,android.R.layout.simple_spinner_item);
+        ArrayAdapter adapter = ArrayAdapter.createFromResource(
+                this,R.array.Week_TypeB,android.R.layout.simple_spinner_item);
 
-       adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinnerType.setAdapter(adapter);
 
@@ -45,12 +45,13 @@ public class Week_Acitivity_TypeA extends AppCompatActivity {
                 switch (position)
                 {
                     case 0:
-                            break;
+                        break;
                     case 1:
-                            Intent intent =new Intent(Week_Acitivity_TypeA.this, Week_Activity_TypeB.class);
-                            startActivity(intent);
-                            finish();
-                            break;
+                        Intent intentB =new Intent(Week_Activity_TypeB.this, Week_Acitivity_TypeA.class);
+                        startActivity(intentB);
+                        finish();
+                        break;
+
                 }
             }
 
@@ -67,18 +68,18 @@ public class Week_Acitivity_TypeA extends AppCompatActivity {
         layout1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Week_Acitivity_TypeA.this, PlanEdit.class);
+                Intent intent = new Intent(Week_Activity_TypeB.this, PlanEdit.class);
                 startActivity(intent);
             }
 
 
         });
 
-        ViewGroup layout2 = (ViewGroup) findViewById(R.id.MonthWA);
+        ViewGroup layout2 = (ViewGroup) findViewById(R.id.MonthWB);
         layout2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(Week_Acitivity_TypeA.this, MainActivity.class);
+                Intent intent=new Intent(Week_Activity_TypeB.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -86,11 +87,11 @@ public class Week_Acitivity_TypeA extends AppCompatActivity {
 
         });
 
-        ViewGroup layout3 = (ViewGroup) findViewById(R.id.WeekWa);
+        ViewGroup layout3 = (ViewGroup) findViewById(R.id.WeekWB);
         layout3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(Week_Acitivity_TypeA.this, Week_Acitivity_TypeA.class);
+                Intent intent=new Intent(Week_Activity_TypeB.this, Week_Activity_TypeB.class);
                 startActivity(intent);
                 finish();
             }
@@ -98,11 +99,11 @@ public class Week_Acitivity_TypeA extends AppCompatActivity {
 
         });
 
-        ViewGroup layout4 = (ViewGroup) findViewById(R.id.DayInfoWA);
+        ViewGroup layout4 = (ViewGroup) findViewById(R.id.DayInfoWB);
         layout4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Week_Acitivity_TypeA.this, MainActivity.class);
+                Intent intent = new Intent(Week_Activity_TypeB.this, MainActivity.class);
                 startActivity(intent);
             }
 

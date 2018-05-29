@@ -15,6 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="93dp"
         android:background="@drawable/side"
+        android:orientation="horizontal"
         android:gravity="center">
         <TextView
             android:layout_width="wrap_content"
@@ -22,6 +23,13 @@
             android:text="주간 일정표"
             android:textSize="30dp"
             android:textColor="#000000"/>
+        <Spinner
+            android:id="@+id/TypeSelectionB"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:entries="@array/Week_TypeB"
+            >
+        </Spinner>
     </LinearLayout>
 
    <LinearLayout
@@ -756,15 +764,15 @@
                     android:id="@+id/thu6"/>
 
                 <TextView
-                    android:text=""
+                    android:id="@+id/fri6"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="3"
-                    android:gravity="center"
-                    android:textColor="#000000"
-                    android:textStyle="bold"
                     android:background="@drawable/outline01"
-                    android:id="@+id/fri6"/>
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#000000"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:text=""
@@ -2497,7 +2505,7 @@
                 android:layout_width="100dp"
                 android:layout_height="40dp"
                 android:layout_weight="1"
-                android:id="@+id/DayInfoWA"
+                android:id="@+id/DayInfoWB"
                 android:gravity="center"
                 android:background="@drawable/button_option_02"
                 >
