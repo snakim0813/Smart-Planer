@@ -53,6 +53,7 @@
             android:background="@drawable/outline01"
             android:orientation="vertical">
             <TextView
+                android:id = "@+id/running_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>

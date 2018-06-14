@@ -67,7 +67,7 @@ public class AddPlanActivity extends AppCompatActivity implements View.OnCreateC
             DBHelper helper = new DBHelper(this);
             SQLiteDatabase db = helper.getWritableDatabase();
 
-            String insertSQL = "insert into s_timeSQL(" +
+            String insertSQL = "insert into s_time(" +
                     "start_time_hour, " +
                     "start_time_min, " +
                     "end_time_hour, " +

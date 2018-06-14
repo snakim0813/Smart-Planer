@@ -1,177 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="385dp"
-    android:layout_height="568dp"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
     >
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="93dp"
-        android:background="@drawable/side"
-
-        >
-
-        <TextView
-            android:layout_width="126dp"
-            android:layout_height="wrap_content"
-
-            android:layout_gravity="center"
-            android:layout_marginHorizontal="120dp"
-            android:text="일정 추가"
-
-            android:textSize="30dp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-
-        android:layout_marginHorizontal="20dp"
-
-        >
-        <TextView
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-
-            android:text="메모"
-            />
-
-        <EditText
-
-            android:id="@+id/PlanName"
-            android:layout_width="334dp"
-            android:layout_height="45dp"
-
-            android:layout_gravity="center"
-
-            android:hint="일정 제목을 입력하시오."
-
-            />
-
-        <TextView
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-
-            android:text="장소"
-            />
-
-        <EditText
-
-            android:id="@+id/PlanLocation"
-            android:layout_width="334dp"
-            android:layout_height="45dp"
-
-            android:layout_gravity="center"
-
-            android:hint="장소를 입력하시오." />
-        <TextView
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textSize="20dp"
-            android:text="시간"
-            />
-
-        <TextView
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-
-            android:text=" 시작"
-            />
-
+        android:layout_height="match_parent">
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:orientation="horizontal">
-
-            <Spinner
-                android:id="@+id/HourStart"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:prompt="@string/NumHour"
-                >
-            </Spinner>
-
-            <Spinner
-                android:id="@+id/MinStart"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:prompt="@string/NumMin"
-                >
-            </Spinner>
-
-        </LinearLayout>
-
-        <TextView
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="10dp"
+            android:orientation="vertical"
 
-            android:text=" 종료"
-            />
+            android:layout_marginHorizontal="20dp"
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:orientation="horizontal">
-
-            <Spinner
-                android:id="@+id/HourEnd"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:prompt="@string/NumHour"
-                >
-            </Spinner>
-
-            <Spinner
-                android:id="@+id/MinEnd"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:prompt="@string/NumMin"
-                >
-            </Spinner>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="220dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/side"
-            android:orientation="vertical">
+            >
             <TextView
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:text="카테고리"
 
+                android:text="메모"
                 />
 
-            <Button
-                android:id="@+id/PlanType"
-                android:layout_width="100dp"
-                android:layout_height="40dp"
+            <EditText
+
+                android:id="@+id/PlanName"
+                android:layout_width="334dp"
+                android:layout_height="45dp"
+
                 android:layout_gravity="center"
-                android:text="TYPE"
+
+                android:hint="일정 제목을 입력하시오."
+
                 />
-        </LinearLayout>>
-    </LinearLayout>
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+
+                android:text="장소"
+                />
+
+            <EditText
+
+                android:id="@+id/PlanLocation"
+                android:layout_width="334dp"
+                android:layout_height="45dp"
+
+                android:layout_gravity="center"
+
+                android:hint="장소를 입력하시오." />
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="20dp"
+                android:text="시간"
+                />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+
+                android:text=" 시작"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv"
+                    android:textSize="20dp"
+                    android:textColor="#3A69D3"
+                    />
+
+                <TimePicker
+                    android:id="@+id/tpS"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv"
+                    android:timePickerMode="spinner">
+
+                </TimePicker>
+
+            </LinearLayout>
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+
+                android:text=" 종료"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv2"
+                    android:textSize="20dp"
+                    android:textColor="#3A69D3"
+                    />
+
+                <TimePicker
+                    android:id="@+id/tpE"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv2"
+                    android:timePickerMode="spinner">
+
+                </TimePicker>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/side"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:text="카테고리"
+
+                    />
+
+                <Button
+                    android:id="@+id/PlanType"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:text="TYPE"
+                    />
+            </LinearLayout>>
+        </LinearLayout>
+    </ScrollView>
 
 
-</LinearLayout>
+</RelativeLayout>
