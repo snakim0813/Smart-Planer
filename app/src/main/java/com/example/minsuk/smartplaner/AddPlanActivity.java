@@ -1,3 +1,4 @@
+/*
 package com.example.minsuk.smartplaner;
 
 import android.database.sqlite.SQLiteDatabase;
@@ -8,6 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.example.minsuk.smartplaner.DBHelper;
+import com.example.minsuk.smartplaner.R;
 
 import java.sql.SQLData;
 
@@ -25,6 +29,7 @@ public class AddPlanActivity extends AppCompatActivity implements View.OnCreateC
     protected  void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         setContentView(R.layout.planedit); //일정 추가 레이아웃이 완성되지 않아 일단 planedit 레이아웃으로 뷰를 잡아줬다.
         PlanNameView=(EditText)findViewById(R.id.PlanName);
         PlanLocationView=(EditText)findViewById(R.id.PlanLocation);
@@ -32,6 +37,7 @@ public class AddPlanActivity extends AppCompatActivity implements View.OnCreateC
         MinStartView=(Spinner)findViewById(R.id.MinStart);
         HourEndView=(Spinner)findViewById(R.id.HourEnd);
         MinEndView=(Spinner)findViewById(R.id.MinEnd);
+
 
         //actionView=(Button)findViewById(R.id.); //버튼이 설정되거나 다른 입력장치 설정되면 추가 및 변경
         //actionView.setOnClickLsitener(this); //버튼 클릭이 일어났을때
@@ -87,3 +93,4 @@ public class AddPlanActivity extends AppCompatActivity implements View.OnCreateC
         }
     }
 }
+*/

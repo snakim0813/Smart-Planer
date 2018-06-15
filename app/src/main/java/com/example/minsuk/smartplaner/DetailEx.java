@@ -2,6 +2,8 @@ package com.example.minsuk.smartplaner;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -17,11 +19,18 @@ public class DetailEx extends Activity {
 
         setContentView(R.layout.detail_exercise);
 
+
         buttonDtailinfo = (ImageButton) findViewById(R.id.DetailEx2);
+
+
+
         buttonDtailinfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(DetailEx.this, Detailinfo.class));
+
+
+                Intent intent = new Intent(DetailEx.this,Detailinfo.class);
+                startActivity(intent);
             }
         });
     }

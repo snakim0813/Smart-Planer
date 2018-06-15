@@ -1,3 +1,4 @@
+
 package com.example.minsuk.smartplaner;
 
 import android.app.Activity;
@@ -21,33 +22,6 @@ public class PlanEdit extends Activity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.planedit);
-        Spinner spinnerHourS =(Spinner)findViewById(R.id.HourStart);
-
-        ArrayAdapter adapterHour = ArrayAdapter.createFromResource(
-                this,R.array.Hour,android.R.layout.simple_spinner_item);
-
-        spinnerHourS.setAdapter(adapterHour);
-
-        Spinner spinnerMinS =(Spinner)findViewById(R.id.MinStart);
-
-        ArrayAdapter adapterMin = ArrayAdapter.createFromResource(
-                this,R.array.Min,android.R.layout.simple_spinner_item);
-
-        spinnerMinS.setAdapter(adapterMin);
-
-        Spinner spinnerHourE =(Spinner)findViewById(R.id.HourEnd);
-
-        ArrayAdapter adapterHourE = ArrayAdapter.createFromResource(
-                this,R.array.Hour,android.R.layout.simple_spinner_item);
-
-        spinnerHourE.setAdapter(adapterHourE);
-
-        Spinner spinnerMinE =(Spinner)findViewById(R.id.MinEnd);
-
-        ArrayAdapter adapterMinE = ArrayAdapter.createFromResource(
-                this,R.array.Min,android.R.layout.simple_spinner_item);
-
-        spinnerMinE.setAdapter(adapterMinE);
 
         button = (Button) findViewById(R.id.PlanType);
         button.setOnClickListener(new View.OnClickListener() {

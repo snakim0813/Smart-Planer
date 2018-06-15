@@ -10,7 +10,7 @@ public class DBHelper extends SQLiteOpenHelper {
     //SQLiteOpenHelper클래스를 상속받아 생성한다.
     //SQLiteOpenHelper는 데이터베이스 생성 및 버전 관리를 관리하는 도우미 클래스이다.
 
-    public static final int DATABASE_VERSION=1;
+    public static final int DATABASE_VERSION = 1;
 
     public DBHelper(Context context) {
         super(context, "plannerdb", null, DATABASE_VERSION);
@@ -32,7 +32,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 "day integer)";
 
         //테이블 작성 문장을 s_timeSQL에 스트링 형식으로 서장
-        String s_timeSQL =  "create table s_time(" +
+        String s_timeSQL = "create table s_time(" +
                 "_id integer primary key autoincrement, " +
                 "date_id integer, " +
                 "start_time_hour integer, " +
@@ -41,21 +41,21 @@ public class DBHelper extends SQLiteOpenHelper {
                 "end_time_min integer, " +
                 "color text, " +
                 "content text not null, " +
-                "place, text" +
+                "place text," +
                 "s_information_ID integer)";
 
-        String s_typeSQL =  "create table s_type(" +
+        String s_typeSQL = "create table s_type(" +
                 "_id integer primary key autoincrement, " +
                 "name text not null)";
 
-        String s_detailSQL =  "create table s_detail(" +
+        String s_detailSQL = "create table s_detail(" +
                 "_id integer primary key autoincrement, " +
-                "name text not null, "  +
+                "name text not null, " +
                 "s_type_ID integer)";
 
-        String s_informationSQL =  "create table s_information(" +
+        String s_informationSQL = "create table s_information(" +
                 "_id integer primary key autoincrement, " +
-                "name text not null, "  +
+                "name text not null, " +
                 "s_informationSQL text, " +
                 "s_detail_ID integer)";
 
@@ -79,20 +79,26 @@ public class DBHelper extends SQLiteOpenHelper {
 
         insertSQL = "select _id from s_type where name = 'exercise'";
         Cursor cursor = db.rawQuery(insertSQL, null);
-        String _id =  cursor.getString(0);
-        int i_id = Integer.parseInt(_id);
+        cursor.moveToFirst();
+        int sql_id = cursor.getInt(0);
+        cursor.close();
 
         insertSQL = "insert into s_detail(name, s_type_ID) " +
-                "values('jump_rope', i_id)";
+                "values('jump_rope', " + sql_id + ")";
+        db.execSQL(insertSQL);
+
+        insertSQL = "insert into s_detail(name, s_type_ID) " +
+                "values('jogging', " + sql_id + ")";
         db.execSQL(insertSQL);
 
         insertSQL = "select _id from s_detail where name = 'jogging'";
         cursor = db.rawQuery(insertSQL, null);
-        _id =  cursor.getString(0);
-        i_id = Integer.parseInt(_id);
+        cursor.moveToFirst();
+        sql_id = cursor.getInt(0);
+        cursor.close();
 
         insertSQL = "insert into s_information(name, s_informationSQL, s_detail_ID) " +
-                "values('jogging', '조깅입니다.', i_id)";
+                "values('jogging', '123123456.', " + sql_id + ")";
         db.execSQL(insertSQL);
 
     }
@@ -102,7 +108,7 @@ public class DBHelper extends SQLiteOpenHelper {
         //onUpgrade는 위에 DATABASE_VERSION이 변경될때마다 호출이 된다.
         //스키마 변경 목적으로 함수를 이용한다.
 
-        if(newVersion == DATABASE_VERSION) {
+        if (newVersion == DATABASE_VERSION) {
             db.execSQL("drop table s_date"); //생성된 s_date 테이블을 제거한다.
             db.execSQL("drop table s_time"); //생성된 s_time 테이블을 제거한다.
 

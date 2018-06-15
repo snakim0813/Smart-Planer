@@ -18,6 +18,7 @@ import android.app.Activity;
 import android.content.Context;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import android.view.LayoutInflater;
@@ -38,6 +39,7 @@ import android.widget.TextView;
 
 
 public class MainActivity extends Activity {
+
 
 
 
@@ -179,10 +181,14 @@ public class MainActivity extends Activity {
 
         gridView.setAdapter(gridAdapter);
 
+        final DBHelper helper = new DBHelper(this);
+
         ViewGroup layout1 = (ViewGroup) findViewById(R.id.PlanMEB);
         layout1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SQLiteDatabase db = helper.getReadableDatabase();
+                db.close();
                 Intent intent = new Intent(MainActivity.this, PlanEdit.class);
                 startActivity(intent);
             }
@@ -195,6 +201,8 @@ public class MainActivity extends Activity {
         layout3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SQLiteDatabase db = helper.getReadableDatabase();
+                db.close();
                 Intent intent=new Intent(MainActivity.this, Week_Acitivity_TypeA.class);
                 startActivity(intent);
                 finish();
@@ -207,6 +215,8 @@ public class MainActivity extends Activity {
         layout4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SQLiteDatabase db = helper.getReadableDatabase();
+                db.close();
                 Intent intent = new Intent(MainActivity.this, Info_Selection_Day.class);
                 startActivity(intent);
             }
