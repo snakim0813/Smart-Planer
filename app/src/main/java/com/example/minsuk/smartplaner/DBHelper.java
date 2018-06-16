@@ -117,7 +117,7 @@ public class DBHelper extends SQLiteOpenHelper {
         }
 
         insertSQL = "insert into s_information(name, s_informationSQL, s_detail_ID) " +
-                "values('jogging', '조깅입니다.', " + sql_id + ")";
+                "values('jogging', 'info_jogging.', " + sql_id + ")";
         db.execSQL(insertSQL);
 
     }

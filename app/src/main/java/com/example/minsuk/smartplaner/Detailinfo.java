@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
 import android.view.Window;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -41,12 +42,14 @@ public class Detailinfo extends Activity {
             }
         }
 
+
         cursor.close();
         db.close();
 
         setContentView(R.layout.detail_running);
-        TextView textView=(TextView)findViewById(R.id.running_text);
 
-       textView.setText(text);
+        ImageView iv = (ImageView)findViewById(R.id.iv);
+        iv.setImageDrawable(getResources().getDrawable(R.drawable.info_jogging));
+
     }
 }
