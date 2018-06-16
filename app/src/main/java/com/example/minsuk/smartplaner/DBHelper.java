@@ -79,9 +79,20 @@ public class DBHelper extends SQLiteOpenHelper {
 
         insertSQL = "select _id from s_type where name = 'exercise'";
         Cursor cursor = db.rawQuery(insertSQL, null);
-        cursor.moveToFirst();
-        int sql_id = cursor.getInt(0);
-        cursor.close();
+
+        int sql_id=0;
+
+        try {
+            if (cursor != null && cursor.moveToFirst()) {
+                sql_id = cursor.getInt(0);
+            }
+        }
+        finally {
+            if(cursor != null) {
+                cursor.close();
+            }
+        }
+
 
         insertSQL = "insert into s_detail(name, s_type_ID) " +
                 "values('jump_rope', " + sql_id + ")";
@@ -93,12 +104,20 @@ public class DBHelper extends SQLiteOpenHelper {
 
         insertSQL = "select _id from s_detail where name = 'jogging'";
         cursor = db.rawQuery(insertSQL, null);
-        cursor.moveToFirst();
-        sql_id = cursor.getInt(0);
-        cursor.close();
+
+        try {
+            if (cursor != null && cursor.moveToFirst()) {
+                sql_id = cursor.getInt(0);
+            }
+        }
+        finally {
+            if(cursor != null) {
+                cursor.close();
+            }
+        }
 
         insertSQL = "insert into s_information(name, s_informationSQL, s_detail_ID) " +
-                "values('jogging', '123123456.', " + sql_id + ")";
+                "values('jogging', '조깅입니다.', " + sql_id + ")";
         db.execSQL(insertSQL);
 
     }

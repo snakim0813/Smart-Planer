@@ -24,17 +24,25 @@ public class Detailinfo extends Activity {
 
 
         String inputSQL = "select s_informationSQL from s_information where name = 'jogging'";
-        Cursor cursor = db.rawQuery(inputSQL, null);
-        db.close();
 
         String text="";
 
+        Cursor cursor = db.rawQuery(inputSQL, null);
+
+
         try {
-            text = (new String(cursor.getBlob(0), "utf-8"));
-            cursor.close();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
+            if (cursor != null && cursor.moveToFirst()) {
+                text = cursor.getString(0);
+            }
         }
+        finally {
+            if(cursor != null) {
+                cursor.close();
+            }
+        }
+
+        cursor.close();
+        db.close();
 
         setContentView(R.layout.detail_running);
         TextView textView=(TextView)findViewById(R.id.running_text);
