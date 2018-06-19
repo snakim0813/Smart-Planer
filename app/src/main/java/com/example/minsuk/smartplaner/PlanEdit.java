@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ public class PlanEdit extends Activity {
     EditText PlanLocationView;
     TimePicker StartTime;
     TimePicker EndTime;
+    TextView DateView;
 
     Button actionView; //현재 버튼 설정이 없음 연결 할수 없음
 
@@ -33,6 +35,17 @@ public class PlanEdit extends Activity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.planedit);
+
+        Intent intent = getIntent();
+        int mYear = intent.getIntExtra("mYear", 0);
+        int mMonth = intent.getIntExtra("mMonth", 0);
+        int mDay = intent.getIntExtra("mDay", 0);
+        String mWeek = intent.getStringExtra("mWeek");
+
+        String  str = String.format("%d.%d.%d %s",mYear,mMonth,mDay,mWeek);
+
+        DateView=(TextView)findViewById(R.id.DateView);
+        DateView.setText(str);
 
         button = (Button) findViewById(R.id.PlanType);
         button.setOnClickListener(new View.OnClickListener() {

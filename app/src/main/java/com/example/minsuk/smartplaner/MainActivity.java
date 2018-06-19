@@ -66,6 +66,7 @@ public class MainActivity extends Activity {
     int mYear = 0;
     int mMonth = 0;
     int mDay = 0;
+    int Week = 0;
     String mWeek = "";
 
 
@@ -81,6 +82,10 @@ public class MainActivity extends Activity {
 
         setContentView(R.layout.activity_main);
 
+        onResume();
+
+
+
         final DBHelper helper = new DBHelper(this);
 
 
@@ -94,11 +99,15 @@ public class MainActivity extends Activity {
                 mMonth = month;
                 mDay  = dayOfMonth;
 
+                mMonth = mMonth+1;
+
                 Calendar cal= Calendar.getInstance ();
 
                 cal.set(Calendar.YEAR, year);
                 cal.set(Calendar.MONTH, month);
                 cal.set(Calendar.DATE, dayOfMonth);
+
+
 
 
                 switch (cal.get(Calendar.DAY_OF_WEEK)){
@@ -128,6 +137,12 @@ public class MainActivity extends Activity {
                 //확인 작업 부분
                 Toast toast = Toast.makeText(getApplicationContext(), mYear +"."+mMonth +"." + mDay + " " + mWeek, Toast.LENGTH_SHORT);
                 toast.show();
+
+                String  str1 = String.format(" %d 일\n   %s",mDay,mWeek);
+
+                DateNow =(TextView)findViewById(R.id.Day);
+
+                DateNow.setText(str1);
 
                 getScheduleList(mYear + "" + (mMonth + 1) + "" + mDay);
 
@@ -163,6 +178,8 @@ public class MainActivity extends Activity {
                 TextView mainplan = (TextView)findViewById(R.id.mainplan);
                 mainplan.setText(text);
 
+
+
             }
         });
 
@@ -191,6 +208,10 @@ public class MainActivity extends Activity {
                 SQLiteDatabase db = helper.getReadableDatabase();
                 db.close();
                 Intent intent = new Intent(MainActivity.this, PlanEdit.class);
+                intent.putExtra("mYear", mYear);
+                intent.putExtra("mMonth", mMonth);
+                intent.putExtra("mDay", mDay);
+                intent.putExtra("mWeek", mWeek);
                 startActivity(intent);
             }
 
@@ -229,27 +250,52 @@ public class MainActivity extends Activity {
 
         });
 
-        Date DateC =  new Date(now);
 
-        SimpleDateFormat Datenow = new SimpleDateFormat(" dd 일\n    ");
+        String  str = String.format(" %d 일\n    %s",mDay,mWeek);
 
-        String nowDate = Datenow.format(DateC);
 
         DateNow =(TextView)findViewById(R.id.Day);
 
-        DateNow.setText(nowDate);
+        DateNow.setText(str);
 
     }
 ////기본적으로 현제 날짜가 변수에 저장한다. 따라서 앱을 켤때에는 항상 현제 날짜에 체크
     protected void onResume() {
         super.onResume();
 
+
         if(mYear == 0 || mMonth == 0 || mDay == 0) {
             Calendar mcurrentDate = Calendar.getInstance();
             mYear   = mcurrentDate.get(Calendar.YEAR);
             mMonth = mcurrentDate.get(Calendar.MONTH);
             mDay  = mcurrentDate.get(Calendar.DAY_OF_MONTH);
+            Week = mcurrentDate.get(Calendar.DAY_OF_WEEK);
         }
+
+        switch (Week){
+            case 1:
+                mWeek = "일요일";
+                break;
+            case 2:
+                mWeek = "월요일";
+                break;
+            case 3:
+                mWeek = "화요일";
+                break;
+            case 4:
+                mWeek = "수요일";
+                break;
+            case 5:
+                mWeek = "목요일";
+                break;
+            case 6:
+                mWeek = "금요일";
+                break;
+            case 7:
+                mWeek = "토요일";
+                break;
+        }
+
 
         getScheduleList(mYear + "" + (mMonth + 1) + "" + mDay);
     }
