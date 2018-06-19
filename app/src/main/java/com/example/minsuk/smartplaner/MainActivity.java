@@ -18,6 +18,7 @@ import android.app.Activity;
 import android.content.Context;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
@@ -80,8 +81,10 @@ public class MainActivity extends Activity {
 
         setContentView(R.layout.activity_main);
 
-        ////클릭시 년월일을 불러오는 작업
+        final DBHelper helper = new DBHelper(this);
 
+
+        ////클릭시 년월일을 불러오는 작업
         calendarView = (CalendarView)findViewById(R.id.calendarView);
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
@@ -127,6 +130,39 @@ public class MainActivity extends Activity {
                 toast.show();
 
                 getScheduleList(mYear + "" + (mMonth + 1) + "" + mDay);
+
+                SQLiteDatabase db = helper.getReadableDatabase();
+
+                String inputSQL = "select s_time.place " +
+                        "from s_date, s_time " +
+                        "where s_date.year = " + mYear + " " +
+                        "and s_date.month = " + mMonth + " " +
+                        "and s_date.day = " + mDay + " " +
+                        "and s_date._id = s_time._id " +
+                        "order by s_time._id";
+
+                String text="";
+
+                Cursor cursor = db.rawQuery(inputSQL, null);
+
+
+                try {
+                    if (cursor != null && cursor.moveToFirst()) {
+                        text = cursor.getString(0);
+                    }
+                }
+                finally {
+                    if(cursor != null) {
+                        cursor.close();
+                    }
+                }
+
+                cursor.close();
+                db.close();
+
+                TextView mainplan = (TextView)findViewById(R.id.mainplan);
+                mainplan.setText(text);
+
             }
         });
 
@@ -147,8 +183,6 @@ public class MainActivity extends Activity {
         mCal = Calendar.getInstance();
 
 
-
-        final DBHelper helper = new DBHelper(this);
 
         ViewGroup layout1 = (ViewGroup) findViewById(R.id.PlanMEB);
         layout1.setOnClickListener(new View.OnClickListener() {
