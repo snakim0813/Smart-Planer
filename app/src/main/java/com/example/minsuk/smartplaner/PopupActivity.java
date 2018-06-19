@@ -23,6 +23,7 @@ public class PopupActivity extends Activity{
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(PopupActivity.this,DetailEx.class));
+                finish();
             }
         });
     }

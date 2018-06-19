@@ -267,7 +267,7 @@ public class MainActivity extends Activity {
         if(mYear == 0 || mMonth == 0 || mDay == 0) {
             Calendar mcurrentDate = Calendar.getInstance();
             mYear   = mcurrentDate.get(Calendar.YEAR);
-            mMonth = mcurrentDate.get(Calendar.MONTH);
+            mMonth = mcurrentDate.get(Calendar.MONTH)+1;
             mDay  = mcurrentDate.get(Calendar.DAY_OF_MONTH);
             Week = mcurrentDate.get(Calendar.DAY_OF_WEEK);
         }

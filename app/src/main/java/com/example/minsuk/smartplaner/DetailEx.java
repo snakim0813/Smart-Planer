@@ -31,6 +31,7 @@ public class DetailEx extends Activity {
 
                 Intent intent = new Intent(DetailEx.this,Detailinfo.class);
                 startActivity(intent);
+                finish();
             }
         });
     }

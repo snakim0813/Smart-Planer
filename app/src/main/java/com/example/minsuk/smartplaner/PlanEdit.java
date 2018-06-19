@@ -27,6 +27,7 @@ public class PlanEdit extends Activity {
     TextView DateView;
 
     Button actionView; //현재 버튼 설정이 없음 연결 할수 없음
+    Button cencleView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +61,7 @@ public class PlanEdit extends Activity {
         StartTime=(TimePicker)findViewById(R.id.tpS);
         EndTime=(TimePicker)findViewById(R.id.tpE);
         actionView=(Button)findViewById(R.id.OKe);
+        cencleView=(Button)findViewById(R.id.NOe);
 
         final DBHelper helper = new DBHelper(this);
 
@@ -110,7 +112,19 @@ public class PlanEdit extends Activity {
 
                     Toast toast = Toast.makeText(getApplicationContext(), "일정이 저장 되었습니다.", Toast.LENGTH_SHORT);
                     toast.show();
+                    finish();
                 }
+            }
+        });
+
+        cencleView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast toast = Toast.makeText(getApplicationContext(), "취소되었습니다.", Toast.LENGTH_SHORT);
+                toast.show();
+
+                finish();
             }
         });
 
