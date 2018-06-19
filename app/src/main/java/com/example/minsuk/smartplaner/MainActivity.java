@@ -65,6 +65,7 @@ public class MainActivity extends Activity {
     int mYear = 0;
     int mMonth = 0;
     int mDay = 0;
+    String mWeek = "";
 
 
 
@@ -90,8 +91,39 @@ public class MainActivity extends Activity {
                 mMonth = month;
                 mDay  = dayOfMonth;
 
+                Calendar cal= Calendar.getInstance ();
+
+                cal.set(Calendar.YEAR, year);
+                cal.set(Calendar.MONTH, month);
+                cal.set(Calendar.DATE, dayOfMonth);
+
+
+                switch (cal.get(Calendar.DAY_OF_WEEK)){
+                    case 1:
+                        mWeek = "일요일";
+                        break;
+                    case 2:
+                        mWeek = "월요일";
+                        break;
+                    case 3:
+                        mWeek = "화요일";
+                        break;
+                    case 4:
+                        mWeek = "수요일";
+                        break;
+                    case 5:
+                        mWeek = "목요일";
+                        break;
+                    case 6:
+                        mWeek = "금요일";
+                        break;
+                    case 7:
+                        mWeek = "토요일";
+                        break;
+                }
+
                 //확인 작업 부분
-                Toast toast = Toast.makeText(getApplicationContext(), mYear +"."+mMonth +"."+mDay , Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(getApplicationContext(), mYear +"."+mMonth +"." + mDay + " " + mWeek, Toast.LENGTH_SHORT);
                 toast.show();
 
                 getScheduleList(mYear + "" + (mMonth + 1) + "" + mDay);
@@ -139,6 +171,10 @@ public class MainActivity extends Activity {
                 SQLiteDatabase db = helper.getReadableDatabase();
                 db.close();
                 Intent intent=new Intent(MainActivity.this, Week_Acitivity_TypeA.class);
+                intent.putExtra("mYear", mYear);
+                intent.putExtra("mMonth", mMonth);
+                intent.putExtra("mDay", mDay);
+                intent.putExtra("mWeek", mWeek);
                 startActivity(intent);
                 finish();
             }
