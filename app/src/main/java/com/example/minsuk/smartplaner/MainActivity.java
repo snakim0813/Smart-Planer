@@ -148,7 +148,7 @@ public class MainActivity extends Activity {
 
                 SQLiteDatabase db = helper.getReadableDatabase();
 
-                String inputSQL = "select s_time.place " +
+                String inputSQL = "select s_time.content " +
                         "from s_date, s_time " +
                         "where s_date.year = " + mYear + " " +
                         "and s_date.month = " + mMonth + " " +

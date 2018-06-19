@@ -97,7 +97,7 @@ public class Week_Acitivity_TypeA extends AppCompatActivity {
         SQLiteDatabase db = helper.getReadableDatabase();
 
         for(int i = 0; i<7; i++) {
-            String inputSQL = "select s_time.place " +
+            String inputSQL = "select s_time.content " +
                     "from s_date, s_time " +
                     "where s_date.year = " + WeekYear[i] + " " +
                     "and s_date.month = " + WeekMon[i] + " " +
