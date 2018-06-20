@@ -134,9 +134,9 @@ public class MainActivity extends Activity {
                         break;
                 }
 
-                //확인 작업 부분
+               /*확인 작업 부분
                 Toast toast = Toast.makeText(getApplicationContext(), mYear +"."+mMonth +"." + mDay + " " + mWeek, Toast.LENGTH_SHORT);
-                toast.show();
+                toast.show();*/
 
                 String  str1 = String.format(" %d 일\n   %s",mDay,mWeek);
 
