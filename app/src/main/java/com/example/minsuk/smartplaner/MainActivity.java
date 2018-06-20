@@ -153,7 +153,7 @@ public class MainActivity extends Activity {
                         "where s_date.year = " + mYear + " " +
                         "and s_date.month = " + mMonth + " " +
                         "and s_date.day = " + mDay + " " +
-                        "and s_date._id = s_time._id " +
+                        "and s_date._id = s_time.date_id " +
                         "order by s_time._id";
 
                 String text="";

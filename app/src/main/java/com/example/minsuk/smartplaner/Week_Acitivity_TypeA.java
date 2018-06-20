@@ -102,7 +102,7 @@ public class Week_Acitivity_TypeA extends AppCompatActivity {
                     "where s_date.year = " + WeekYear[i] + " " +
                     "and s_date.month = " + WeekMon[i] + " " +
                     "and s_date.day = " + WeekDay[i] + " " +
-                    "and s_date._id = s_time._id " +
+                    "and s_date._id = s_time.date_id " +
                     "order by s_time._id";
 
             String text="";
