@@ -70,6 +70,7 @@ public class MainActivity extends Activity {
     String mWeek = "";
 
 
+    final DBHelper helper = new DBHelper(this);
 
     @Override
 
@@ -83,11 +84,6 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         onResume();
-
-
-
-        final DBHelper helper = new DBHelper(this);
-
 
         ////클릭시 년월일을 불러오는 작업
         calendarView = (CalendarView)findViewById(R.id.calendarView);
@@ -106,8 +102,6 @@ public class MainActivity extends Activity {
                 cal.set(Calendar.YEAR, year);
                 cal.set(Calendar.MONTH, month);
                 cal.set(Calendar.DATE, dayOfMonth);
-
-
 
 
                 switch (cal.get(Calendar.DAY_OF_WEEK)){
@@ -144,7 +138,7 @@ public class MainActivity extends Activity {
 
                 DateNow.setText(str1);
 
-                getScheduleList(mYear + "" + (mMonth + 1) + "" + mDay);
+//                getScheduleList(mYear + "" + (mMonth + 1) + "" + mDay);
 
                 SQLiteDatabase db = helper.getReadableDatabase();
 
@@ -296,18 +290,49 @@ public class MainActivity extends Activity {
                 break;
         }
 
+        SQLiteDatabase db = helper.getReadableDatabase();
 
-        getScheduleList(mYear + "" + (mMonth + 1) + "" + mDay);
+        String inputSQL = "select s_time.content " +
+                "from s_date, s_time " +
+                "where s_date.year = " + mYear + " " +
+                "and s_date.month = " + mMonth + " " +
+                "and s_date.day = " + mDay + " " +
+                "and s_date._id = s_time.date_id " +
+                "order by s_time._id";
+
+        String text="";
+
+        Cursor cursor = db.rawQuery(inputSQL, null);
+
+
+        try {
+            if (cursor != null && cursor.moveToFirst()) {
+                text = cursor.getString(0);
+            }
+        }
+        finally {
+            if(cursor != null) {
+                cursor.close();
+            }
+        }
+
+        cursor.close();
+        db.close();
+
+        TextView mainplan = (TextView)findViewById(R.id.mainplan);
+        mainplan.setText(text);
+
+//        getScheduleList(mYear + "" + (mMonth + 1) + "" + mDay);
     }
 
-////디비에 비교 할때 쓰면 좋을거 같은느낌??
+/*////디비에 비교 할때 쓰면 좋을거 같은느낌??
     private void getScheduleList(String date) {
 
 
         Schedules schedules = new Schedules();
         schedules.date = date;
 
-    }
+    }*/
 
 
 
